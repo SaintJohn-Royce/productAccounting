@@ -5,11 +5,18 @@ while True:
 	if name == 'q':
 		break
 	price = input('and the price of the item? ')
+	
 	p = []
 	p.append(name)
 	p.append(price)
+	
+	# an easier way is to write p = [name, price]
+
 	products.append(p)
+
+	# a further easier way is to write products.append([name, price])
 
 print(products)
 
-print(products[0][0])
+for p in products:
+	print(p[0], 'has a price of', p[1])
