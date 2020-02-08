@@ -1,23 +1,33 @@
+import os # operating system
+
 products = []
 
-with open('product.csv', 'r') as file:
+if os.path.isfile('product.csv'):
 
-	for line in file:
+	print('this file exists')
 
-		if 'Item Name' in line:
+	with open('product.csv', 'r') as file:
 
-			continue #jump to next step of for loop
+		for line in file:
 
-		# strip: recognizes that there is a '\n' and removes all of them
-		# split: recognizes that the splits occur at the commas
-		# thus, this code removes all of the '\n' and then splits by commas
-		#strip = line.strip().split(',')
+			if 'Item Name' in line:
 
-		#name = strip[0]
-		#price = strip[1]
-		# a faster way is to write
-		name, price, itemNumber, itemTotalPriceStr = line.strip().split(',')
+				continue #jump to next step of the for loop
 
-		products.append([name, price, itemNumber, itemTotalPriceStr])
+			# strip: recognizes that there is a '\n' and removes all of them
+			# split: recognizes that the splits occur at the commas
+			# thus, this code removes all of the '\n' and then splits by commas
+			#strip = line.strip().split(',')
 
-print(products)
+			#name = strip[0]
+			#price = strip[1]
+			# a faster way is to write
+			name, price, itemNumber, itemTotalPriceStr = line.strip().split(',')
+
+			products.append([name, price, itemNumber, itemTotalPriceStr])
+
+	print(products)
+
+else:
+
+	print('this file does not exist')
