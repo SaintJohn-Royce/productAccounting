@@ -4,6 +4,10 @@ with open('product.csv', 'r') as file:
 
 	for line in file:
 
+		if 'Item Name' in line:
+
+			continue #jump to next step of for loop
+
 		# strip: recognizes that there is a '\n' and removes all of them
 		# split: recognizes that the splits occur at the commas
 		# thus, this code removes all of the '\n' and then splits by commas
