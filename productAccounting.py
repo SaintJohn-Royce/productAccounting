@@ -19,16 +19,16 @@ while True:
 
 	products.append([name, price, itemNumber, str(itemTotalPriceInt)])
 
-	# a further easier way is to write products.append([name, price])
-
 # display methods
 #for p in products:
 #	print(p[0], p[1], p[2], p[3])
 
 # write in a 'file' known as 'product.csv'
+# in the event that chinese is used, insert encoding = 'utf-8', as in:
+# with open('product.csv', 'w', encoding = 'utf-8') as file:
 with open('product.csv', 'w') as file:
 
-	file.write('Item name' + ',' + 'Individual Price' + ',' + 'Number of Items' + ',' + 'Total Item Price' + '\n')
+	file.write('Item name, Individual Price, Number of Items, Total Item Price\n')
 
 	# for every line 'p' in 'products'
 	for p in products:
