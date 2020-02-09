@@ -6,17 +6,13 @@ def read_file(filename):
 
 	products = []
 
-	if os.path.isfile(filename):
+	with open(filename, 'r') as file:
 
-		print('this file exists')
+		for line in file:
 
-		with open(filename, 'r') as file:
+			if 'Item Name' in line:
 
-			for line in file:
-
-				if 'Item Name' in line:
-
-					continue #jump to next step of the for loop
+				continue #jump to next step of the for loop
 
 				# strip: recognizes that there is a '\n' and removes all of them
 				# split: recognizes that the splits occur at the commas
@@ -26,14 +22,22 @@ def read_file(filename):
 				#name = strip[0]
 				#price = strip[1]
 				# a faster way is to write
-				name, price, itemNumber, itemTotalPriceStr = line.strip().split(',')
+			name, price, itemNumber, itemTotalPriceStr = line.strip().split(',')
 
-				products.append([name, price, itemNumber, itemTotalPriceStr])
+			products.append([name, price, itemNumber, itemTotalPriceStr])
 
-		print(products)
+	return products
 
-	else:
 
-		print('this file does not exist')
+if os.path.isfile(filename):
 
-read_file(filename)
+	print('this file exists')
+
+	products = read_file(filename)
+
+	print(products)
+
+else:
+
+	print('this file does not exist')
+
