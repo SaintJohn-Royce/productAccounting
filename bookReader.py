@@ -28,16 +28,17 @@ def read_file(filename):
 
 	return products
 
+def main(filename):
+	if os.path.isfile(filename):
 
-if os.path.isfile(filename):
+		print('the file', filename, 'exists')
 
-	print('this file exists')
+		products = read_file(filename)
 
-	products = read_file(filename)
+		print(products)
 
-	print(products)
+	else:
 
-else:
+		print('this file does not exist')
 
-	print('this file does not exist')
-
+main(filename)
